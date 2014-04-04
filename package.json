@@ -1,0 +1,26 @@
+{
+  "name": "Reader",
+  "version": "0.1.155",
+  "author": "Jan Dedecek",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/bower/bower/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-usemin": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-bumpup": "*",
+    "grunt-crx": "~0.3.3",
+    "grunt-exec": "*",
+    "grunt-string-replace": "*",
+    "grunt-typescript": "*",
+    "typescript": "*"
+  }
+}
