@@ -75,22 +75,26 @@ var _jQuery = $.noConflict(true);
         div.style.padding = '0px';
         div.style['z-index'] = '10000000';
         div.style.zIndex = '10000000';
+        div.style.margin = '0 auto';
 
         var frame:HTMLIFrameElement = document.createElement('iframe');
         frame.src = chrome.extension.getURL('html/display.html?response=' + encodeURIComponent(text));
-        frame.style.cssText = '-webkit-transform-origin: 50% 0';
-        frame.style.top = "0px";
-        frame.style.left = "0px";
-        frame.style.height = "100%";
-        frame.style.border = "none";
+        frame.style.cssText = '-webkit-transform-origin: 0 0';
 
         var resize = function () {
-            frame.style.top = "0px";
-            frame.style.left = "0px";
             frame.style.height = "100%";
             frame.style.width = screen.width + 'px';
-            var scale = document.documentElement.clientWidth / screen.width;
+            frame.style.margin = "0 auto";
+            frame.style.border = '1px dotted blue';
+            frame.style.display = 'inline-block';
+            var scale = document.body.clientWidth / screen.width;
             frame.style['-webkit-transform'] = 'scale(' + scale + ')';
+
+            // Which width of document is right?
+            console.log('document.documentElement.clientWidth = ' + document.documentElement.clientWidth);
+            console.log('window.outerWidth = ' + window.outerWidth);
+            console.log('window.innerWidth = ' + window.innerWidth);
+            console.log('window.innerWidth = ' + document.body.clientWidth);
         }
 
         resize();
