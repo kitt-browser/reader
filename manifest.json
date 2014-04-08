@@ -1,13 +1,13 @@
 {
   "name": "Reader",
-  "version": "0.1.176",
+  "version": "0.2.0",
   "author": "Jan Dedecek",
   "manifest_version": 2,
   "icons": {
-    "48": "images/book_side_icon&48.png"
+    "48": "images/reader.png"
   },
   "browser_action": {
-    "default_icon": "images/book_side_icon&48.png"
+    "default_icon": "images/reader.png"
   },
   "background": {
     "scripts": [

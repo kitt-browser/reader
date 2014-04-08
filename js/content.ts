@@ -118,7 +118,7 @@ var _jQuery = $.noConflict(true);
     var frame:HTMLElement;
 
     var iconPath = function () {
-        return 'images/'+(frameDisplayed? 'book_icon&48' :'book_side_icon&48')+'.png';
+        return 'images/'+(frameDisplayed? 'reader_active' :'reader')+'.png';
     }
 
     var toggleStatus = function() {
