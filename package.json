@@ -21,6 +21,7 @@
     "grunt-exec": "*",
     "grunt-string-replace": "*",
     "grunt-typescript": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "grunt-s3": "^0.2.0-alpha.3"
   }
 }
