@@ -2,6 +2,8 @@
 /// <reference path="../definitions/jquery/jquery.d.ts" />
 /// <reference path="commons.ts" />
 
+var FRAME_WIDTH = 240;
+
 var _jQuery = $.noConflict(true);
 
 (function ($) {
@@ -65,39 +67,37 @@ var _jQuery = $.noConflict(true);
     var displayFrame = function (text): HTMLElement {
 
         var div = document.createElement('div');
-        div.style.cssText = 'overflow:scroll !important; -webkit-overflow-scrolling:touch !important;';
         div.style.backgroundColor = 'white';
-        div.style.position = "fixed";
+        div.style.position = "absolute";
         div.style.top = "0px";
         div.style.left = "0px";
         div.style.bottom = "0px";
         div.style.right = "0px";
         div.style.padding = '0px';
+        div.style.margin = '0px';
+        div.style.border = '0px solid white';
         div.style['z-index'] = '10000000';
         div.style.zIndex = '10000000';
 
         var frame:HTMLIFrameElement = document.createElement('iframe');
         frame.src = chrome.extension.getURL('html/display.html?response=' + encodeURIComponent(text));
-        frame.style.cssText = '-webkit-transform-origin: 0 0';
 
         var resize = function () {
-            frame.style.height = '100%';
-            frame.style.width = '100%';
+            frame.style.cssText = '-webkit-transform-origin: 0 0';
+            frame.style.width = FRAME_WIDTH + 'px';
             frame.style.position = 'absolute';
             frame.style.top = '0';
             frame.style.left = '0';
             frame.style.display = 'block';
             frame.style.border = '0';
-            
-            var scale = document.body.clientWidth / screen.width;
+
+            var width = Math.max(document.body.clientWidth, window.innerWidth, document.documentElement.clientWidth);
+            var scale = width / FRAME_WIDTH;
             frame.style['-webkit-transform'] = 'scale(' + scale + ')';
             frame.style['-webkit-transform-origin'] = '0 0';
 
-            // Which width of document is right?
-            console.log('document.documentElement.clientWidth = ' + document.documentElement.clientWidth);
-            console.log('window.outerWidth = ' + window.outerWidth);
-            console.log('window.innerWidth = ' + window.innerWidth);
-            console.log('window.innerWidth = ' + document.body.clientWidth);
+            div.style.width = width + 'px';
+            div.style.height = Math.max(document.body.clientHeight, window.innerHeight, document.documentElement.clientHeight) + 'px';
         }
 
         resize();
@@ -105,6 +105,10 @@ var _jQuery = $.noConflict(true);
         frame.onload = function () {
             resize();
         }
+
+        document.body.addEventListener('resize', function () {
+            resize();
+        });
 
         div.appendChild(frame);
 
