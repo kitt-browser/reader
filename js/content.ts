@@ -9,7 +9,6 @@ var _jQuery = $.noConflict(true);
 (function ($) {
 
     var pendingRequest = false;
-    var div = document.createElement('div');
 
     var embedlyRequest = function(callback) {
         if (pendingRequest) {
@@ -67,7 +66,7 @@ var _jQuery = $.noConflict(true);
 
     var displayFrame = function (text): HTMLElement {
 
-        //var div = document.createElement('div');
+        var div = document.createElement('div');
         div.style.backgroundColor = 'white';
         div.style.position = "absolute";
         div.style.top = "0px";
