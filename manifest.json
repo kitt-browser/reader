@@ -1,7 +1,7 @@
 {
   "name": "Reader",
   "description": "The Reader extension displays web pages in a mobile-friendly reading view. Unnecessary content is stripped away and the remaining text is formatted to make it easily readable on the small screen of a mobile device.",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "author": "Jan Dedecek",
   "manifest_version": 2,
   "icons": {

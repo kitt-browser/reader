@@ -17,14 +17,8 @@ var _jQuery = $.noConflict(true);
         }
         pendingRequest = true;
 
-        var url: string;
-
-        var links = document.getElementsByTagName("link");
-        for (var i = 0; i < links.length; i ++) {
-            if (links[i].getAttribute("rel") === "canonical") {
-                url = links[i].getAttribute("href");
-            }
-        }
+        var canonical = document.querySelector('link[rel="canonical"]');
+        var url = canonical ? canonical.getAttribute("href") : window.location.href;
 
         if (typeof url === 'undefined') {
             url = window.location.href;
