@@ -9,5 +9,9 @@ class Constants {
 
     public static GET_ICON = "GET_ICON";
 
+    public static READER_CONTENT = "READER_CONTENT";
+
+    public static GET_READER_CONTENT = "GET_READER_CONTENT";
+
     public static EMBEDLY_TOKEN = "<%== EMBEDLY_TOKEN ==>";
 }

@@ -49,3 +49,14 @@ p {
     font-weight: normal;
     word-break: break-word;
 }
+
+#preloader {
+}
+
+#message-box {
+    display: none;
+}
+
+#message-box-content {
+    text-align: center;
+}

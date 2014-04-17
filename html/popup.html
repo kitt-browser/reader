@@ -8,12 +8,19 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/commons.js"></script>
+    <script type="text/javascript" src="../js/popup.js"></script>
 </head>
 <body>
-    <div id="reader-wrapper">
-        <h1 id="title"></h1>
-        <p id="content"></p>
-        <p id="related"></p>
-    </div>
+<div id="reader-wrapper">
+    <div id="preloader"><img src="../images/preloader.gif"></div>
+    <!-- This will contain error message, hidden by default -->
+    <div id="message-box"><div id="message-box-content">Error message</div></div>
+
+    <h1 id="title"></h1>
+    <p id="content"></p>
+    <p id="related"></p>
+</div>
 </body>
 </html>

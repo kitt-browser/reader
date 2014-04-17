@@ -21,13 +21,3 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             break;
     }
 });
-
-if (chrome.tabs.onActivated) {
-    chrome.tabs.onActivated.addListener(function (info) {
-        chrome.tabs.sendMessage(info.tabId, {cmd: Constants.GET_ICON}, function (response) {
-            if (response.path) {
-                chrome.browserAction.setIcon({path: response.path});
-            }
-        });
-    });
-}
