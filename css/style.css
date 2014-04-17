@@ -48,6 +48,7 @@ p {
     color: #333333;
     font-weight: normal;
     word-break: break-word;
+    line-height: 30px;
 }
 
 #content,
