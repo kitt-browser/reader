@@ -66,7 +66,7 @@ $(document).ready(function () {
         });
 
         // Hide preloader
-        $('#preloader').hide();
+        $('.preloader').hide();
 
         return null;
     }

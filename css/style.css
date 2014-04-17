@@ -20,43 +20,135 @@ body {
           box-sizing: border-box;
 }
 
-#reader-wrapper {
-    height: 100%;
-    max-width: 100%;
-}
-
 img {
     max-width: 100%;
 }
 
 h1 {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 26px;
     font-weight: bold;
     margin-top: 0;
 }
 
 h2 {
-    font-size: 12px;
+    font-size: 24px;
     color: #333333;
     font-weight: bold;
 }
 
+h3 {
+    font-size: 22px;
+    color: #333333;
+    font-weight: bold;
+}
+
+#content,
+#related,
 p {
     color: #333333;
-    font-size: 12px;
-    line-height: 18px;
     font-weight: normal;
     word-break: break-word;
 }
 
-#preloader {
+#content,
+#related,
+#message-box {
+    font-size: 18px;
 }
 
 #message-box {
     display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 20px;
+    background-color: #bf2f24;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    padding: 10px;
 }
 
-#message-box-content {
-    text-align: center;
+
+/* preloader */
+
+.preloader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -80px;
+  overflow: hidden;
+  height: 50px;
+  width: 200px;
+  z-index: 100;
+}
+
+.loader {
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+
+.cube1,
+.cube2,
+.cube3,
+.cube4,
+.cube5 {
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  
+  -webkit-animation: cubemove 2s infinite ease-in-out;
+  animation: cubemove 2s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s;
+}
+
+.cube3 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.cube4 {
+  -webkit-animation-delay: -1.5s;
+  animation-delay: -1.5s;
+}
+.cube5 {
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+}
+
+@-webkit-keyframes cubemove {
+  0% { -webkit-transform: translateX(-120px);}
+  50% { -webkit-transform: translateX(0px) rotate(180deg) scale(2.2); background: #999; }
+  100% { -webkit-transform: translateX(120px);}
+}
+
+@keyframes cubemove {
+  0% { 
+    -webkit-transform: translateX(-120px);
+    transform: translateX(-120px);
+  }
+  50% { 
+    -webkit-transform: translateX(0px) rotate(180deg) scale(2.2); background: #999;
+    transform: translateX(0px) rotate(180deg) scale(2.2); background: #999;
+  }
+  100% { 
+    -webkit-transform: translateX(120px);
+    transform: translateX(120px);
+  }
 }
