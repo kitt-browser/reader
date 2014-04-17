@@ -25,32 +25,6 @@ $(document).ready(function () {
         var content = $('#content');
         content.html(embedLy.content.replace(/(\r\n|\n|\r)/gm,""));
 
-        if (embedLy.related) {
-            var related: Array<any> = embedLy.related;
-
-            var p = $('#related')[0];
-
-            for (var i = 0; i < related.length; i++) {
-
-                var b = document.createElement('b');
-                b.innerHTML = related[i].title;
-                p.appendChild(b);
-
-                var description = document.createElement('div');
-                description.innerHTML = related[i].description;
-                p.appendChild(description);
-
-                var a = document.createElement('a');
-                var linkText = document.createTextNode(related[i].url);
-                a.appendChild(linkText);
-                a.href = related[i].url;
-                p.appendChild(a)
-
-                var br = document.createElement('br');
-                p.appendChild(br);
-            }
-        }
-
         $('a').click(function () {
             var self:HTMLAnchorElement = <HTMLAnchorElement>this;
             chrome.tabs.query({active:true}, function (tabs) {
