@@ -17,9 +17,22 @@ var _jQuery = $.noConflict(true);
         }
         pendingRequest = true;
 
+        var url: string;
+
+        var links = document.getElementsByTagName("link");
+        for (var i = 0; i < links.length; i ++) {
+            if (links[i].getAttribute("rel") === "canonical") {
+                url = links[i].getAttribute("href");
+            }
+        }
+
+        if (typeof url === 'undefined') {
+            url = window.location.href;
+        }
+
         var  EMBEDLY_URL = "http://api.embed.ly/1/extract?maxwidth=1000&key=" + Constants.EMBEDLY_TOKEN + "&url=#{URL}";
 
-        var url = EMBEDLY_URL.replace('#{URL}', encodeURIComponent(window.location.href));
+        var url = EMBEDLY_URL.replace('#{URL}', encodeURIComponent(url));
         var xhr = new XMLHttpRequest();
 
         xhr.open('GET', url);
