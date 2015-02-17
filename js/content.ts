@@ -54,41 +54,36 @@ var _jQuery = $.noConflict(true);
 
     var readerResponse:any;
 
-    $(document).ready(function () {
 
-        chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-
-            switch (request.cmd) {
-                case Constants.GET_READER_CONTENT:
-                    if (typeof readerResponse == 'undefined') {
-                        embedlyRequest(function (text, error) {
-                            if (text) {
-                                readerResponse = {
-                                    content: text
-                                };
-                            } else {
-                                readerResponse = {
-                                    error: error ? error.toString(): ''
-                                };
-                            }
-
-                            chrome.runtime.sendMessage({cmd:Constants.READER_CONTENT, readerResponse:readerResponse}, function () {
-                                // No response
-                            });
-                        });
-                    } else {
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        switch (request.cmd) {
+            case Constants.GET_READER_CONTENT:
+                if (typeof readerResponse == 'undefined') {
+                    embedlyRequest(function (text, error) {
+                        if (text) {
+                            readerResponse = {
+                                content: text
+                            };
+                        } else {
+                            readerResponse = {
+                                error: error ? error.toString(): ''
+                            };
+                        }
                         chrome.runtime.sendMessage({cmd:Constants.READER_CONTENT, readerResponse:readerResponse}, function () {
                             // No response
                         });
-                    }
-
-                    sendResponse({});
-                    break;
-                default:
-                    sendResponse({});
-                    break;
-            }
-        });
+                    });
+                } else {
+                    chrome.runtime.sendMessage({cmd:Constants.READER_CONTENT, readerResponse:readerResponse}, function () {
+                        // No response
+                    });
+                }
+                sendResponse({});
+            break;
+            default:
+                sendResponse({});
+            break;
+        }
     });
 
 })(_jQuery);
