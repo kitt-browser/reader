@@ -20,6 +20,7 @@
   "content_scripts": [
     {
       "js": [
+        "js/jquery.min.js",
         "js/commons.js",
         "js/content.js"
       ],
