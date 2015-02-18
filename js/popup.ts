@@ -82,9 +82,9 @@ $(document).ready(function () {
                 }
 
                 if (status) {
-                    $('#preloader').hide();
+                    $('.preloader').hide();
                     $('#message-box').show();
-                    $('#message-box-content').html("Could not get content from Embed.ly.");
+                    $('#message-box').html("Could not get content from Embed.ly.");
                 }
 
                 sendResponse({});

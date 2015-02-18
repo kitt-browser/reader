@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     },
     exec: {
       bower: {
-        command: 'bower install'
+        command: './node_modules/bower/bin/bower install'
       }
     },
     bumpup: {
@@ -154,7 +154,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-s3');
 
-  grunt.registerTask('default', ['typescript', 'bumpup', 'exec:bower', 'copy', 'string-replace', 'crx']);
+  grunt.registerTask('default', ['typescript', 'bumpup', 'exec:bower', 'copy', 'string-replace', 'useminPrepare', 'concat', 'usemin', 'crx']);
 
   grunt.registerTask('upload', function() {
     if (!process.env.S3_FOLDER ) {
